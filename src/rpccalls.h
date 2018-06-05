@@ -3,10 +3,10 @@
 //
 
 
-#ifndef CROWXMR_RPCCALLS_H
-#define CROWXMR_RPCCALLS_H
+#ifndef CROWRMX_RPCCALLS_H
+#define CROWRMX_RPCCALLS_H
 
-#include "monero_headers.h"
+#include "remix_headers.h"
 
 #include <mutex>
 #include <utility>
@@ -47,8 +47,8 @@ struct has_destructor
 
 namespace cryptonote
 {
-// declare struct in monero's cryptonote namespace.
-// monero should provide definition for this,
+// declare struct in remix's cryptonote namespace.
+// remix should provide definition for this,
 // but we need to have it declared as we are going to
 // check if its definition exist or not. depending on this
 // we decide what gets to be defined as
@@ -56,7 +56,7 @@ namespace cryptonote
 struct COMMAND_RPC_GET_ALT_BLOCKS_HASHES;
 }
 
-namespace xmreg
+namespace rmxeg
 {
 
 using namespace cryptonote;
@@ -85,7 +85,7 @@ public:
              uint64_t _timeout = 200000);
 
     bool
-    connect_to_monero_deamon();
+    connect_to_remix_deamon();
 
     uint64_t
     get_current_height();
@@ -130,7 +130,7 @@ public:
         {
             std::lock_guard<std::mutex> guard(m_daemon_rpc_mutex);
 
-            if (!connect_to_monero_deamon())
+            if (!connect_to_remix_deamon())
             {
                 cerr << "get_alt_blocks: not connected to deamon" << endl;
                 return false;
@@ -156,14 +156,14 @@ public:
 
             if (!err.empty())
             {
-                cerr << "Error connecting to Monero deamon due to "
+                cerr << "Error connecting to Remix deamon due to "
                      << err << endl;
                 return false;
             }
         }
         else
         {
-            cerr << "Error connecting to Monero deamon at "
+            cerr << "Error connecting to Remix deamon at "
                  << deamon_url << endl;
             return false;
         }
@@ -193,4 +193,4 @@ public:
 
 
 
-#endif //CROWXMR_RPCCALLS_H
+#endif //CROWRMX_RPCCALLS_H

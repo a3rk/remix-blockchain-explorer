@@ -88,14 +88,14 @@ cmake ..
 make
 ```
 
-When compilation finishes executable `xmrblocks` should be created. Before running
+When compilation finishes executable `rmxblocks` should be created. Before running
 please make sure that  `~/Downloads` folder exists and is writable. 
 Time zone library that explorer is using, puts there 
 its database of time zone offsets
 
 To run it:
 ```
-./xmrblocks
+./rmxblocks
 ```
 
 By default it will look for blockchain in its default location i.e., `~/.bitremix/lmdb`.
@@ -103,7 +103,7 @@ You can use `--bc-path` option if its in different location.
 Example output:
 
 ```bash
-[mwo@arch onion-remix-blockchain-explorer]$ ./xmrblocks
+[mwo@arch onion-remix-blockchain-explorer]$ ./rmxblocks
 2016-May-28 10:04:49.160280 Blockchain initialized. last block: 1056761, d0.h0.m12.s47 time ago, current difficulty: 1517857750
 (2016-05-28 02:04:49) [INFO    ] Crow/0.1 server is running, local port 8081
 ```
@@ -113,7 +113,7 @@ Go to your browser: http://127.0.0.1:8081
 ## The explorer's command line options
 
 ```
-xmrblocks, Remix Blockchain Explorer:
+rmxblocks, Remix Blockchain Explorer:
   -h [ --help ] [=arg(=1)] (=0)         produce help message
   -t [ --testnet ] [=arg(=1)] (=0)      use testnet blockchain
   --enable-pusher [=arg(=1)] (=0)       enable signed transaction pusher
@@ -165,10 +165,10 @@ Example usage, defined as bash aliases.
 
 ```bash
 # for mainnet explorer
-alias xmrblocksmainnet='~/onion-remix-blockchain-explorer/build/xmrblocks    --port 8081 --testnet-url "http://139.162.32.245:8082" --enable-pusher --enable-emission-monitor'
+alias rmxblocksmainnet='~/onion-remix-blockchain-explorer/build/rmxblocks    --port 8081 --testnet-url "http://139.162.32.245:8082" --enable-pusher --enable-emission-monitor'
 
 # for testnet explorer
-alias xmrblockstestnet='~/onion-remix-blockchain-explorer/build/xmrblocks -t --port 8082 --mainnet-url "http://139.162.32.245:8081" --enable-pusher --enable-emission-monitor'
+alias rmxblockstestnet='~/onion-remix-blockchain-explorer/build/rmxblocks -t --port 8082 --mainnet-url "http://139.162.32.245:8081" --enable-pusher --enable-emission-monitor'
 ```
 
 These are aliases similar to those used for http://139.162.32.245:8081/ and http://139.162.32.245:8082/, respectively.
@@ -180,7 +180,7 @@ disabled. To enable it use `--enable-emission-monitor` flag, e.g.,
 
 
 ```bash
-xmrblocks --enable-emission-monitor 
+rmxblocks --enable-emission-monitor 
 ```
 
 This flag will enable emission monitoring thread. When started, the thread
@@ -218,7 +218,7 @@ By default, decoding and proving tx's outputs are done on the server side. To do
 (private view and tx keys are not send to the server) JavaScript-based decoding can be enabled:
 
 ```
-xmrblocks --enable-js
+rmxblocks --enable-js
 ```
     
 ## Enable SSL (https)
@@ -234,10 +234,10 @@ openssl req -new -key server.key -out server.csr
 openssl x509 -req -days 3650 -in server.csr -signkey server.key -out server.crt
 ```
 
-Having the `crt` and `key` files, run `xmrblocks` in the following way:
+Having the `crt` and `key` files, run `rmxblocks` in the following way:
 
 ```bash
-./xmrblocks --ssl-crt-file=/tmp/server.crt --ssl-key-file=/tmp/server.key 
+./rmxblocks --ssl-crt-file=/tmp/server.crt --ssl-key-file=/tmp/server.key 
 ```
 
 Note: Because we generated our own certificate, modern browsers will complain
@@ -300,8 +300,8 @@ Partial results shown:
     "tx_hash": "6093260dbe79fd6277694d14789dc8718f1bd54457df8bab338c2efa3bb0f03d",
     "tx_size": 13323,
     "tx_version": 2,
-    "xmr_inputs": 0,
-    "xmr_outputs": 0
+    "rmx_inputs": 0,
+    "rmx_outputs": 0
   },
   "status": "success"
 }
@@ -399,8 +399,8 @@ Partial results shown:
         "tx_hash": "3ff71b65bec34c9261e01a856e6a03594cf0472acf6b77db3f17ebd18eaa30bf",
         "tx_size": 95,
         "tx_version": 2,
-        "xmr_inputs": 0,
-        "xmr_outputs": 8025365394426
+        "rmx_inputs": 0,
+        "rmx_outputs": 8025365394426
       }
     ]
   },
@@ -438,8 +438,8 @@ Partial results shown:
         "tx_hash": "9f3374f8ac67febaab153eab297937a3d0d2c706601e496bf5028146da0c9aef",
         "tx_size": 13291,
         "tx_version": 2,
-        "xmr_inputs": 0,
-        "xmr_outputs": 0
+        "rmx_inputs": 0,
+        "rmx_outputs": 0
       }
     ],
     "txs_no": 7
@@ -491,8 +491,8 @@ Partial results shown:
         "tx_hash": "479ba432f5c88736b438dd4446a11a13046a752d469f7828151f5c5b86be4e9a",
         "tx_size": 95,
         "tx_version": 2,
-        "xmr_inputs": 0,
-        "xmr_outputs": 7992697599717
+        "rmx_inputs": 0,
+        "rmx_outputs": 7992697599717
       }
     ]
   },
@@ -543,7 +543,7 @@ curl  -w "\n" -X GET "http://127.0.0.1:8081/api/outputs?txhash=17049bc5f2d9fbca1
 
 Proving transfer:
 
-We use recipient's address (i.e. not our address from which we sent xmr to recipient).
+We use recipient's address (i.e. not our address from which we sent rmx to recipient).
 For the viewkey, we use `tx_private_key` (although the GET variable is still called `viewkey`) that we obtained by sending this txs. 
 
 ```bash

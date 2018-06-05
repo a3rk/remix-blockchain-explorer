@@ -2,12 +2,12 @@
 // Created by mwo on 5/11/15.
 //
 
-#ifndef XMREG01_TOOLS_H
-#define XMREG01_TOOLS_H
+#ifndef RMXEG01_TOOLS_H
+#define RMXEG01_TOOLS_H
 
 #define PATH_SEPARARTOR '/'
 
-#define XMR_AMOUNT(value) \
+#define RMX_AMOUNT(value) \
     static_cast<double>(value) / 1e12
 
 #define REMOVE_HASH_BRAKETS(a_hash) \
@@ -15,7 +15,7 @@
 
 
 
-#include "monero_headers.h"
+#include "remix_headers.h"
 
 #include "../ext/fmt/ostream.h"
 #include "../ext/fmt/format.h"
@@ -38,7 +38,7 @@
  * Names are rather self-explanatory, so I think
  * there is no reason for any detailed explanations here
  */
-namespace xmreg
+namespace rmxeg
 {
 
 using namespace cryptonote;
@@ -222,7 +222,7 @@ get_payment_id(const transaction& tx,
 
 
 inline double
-get_xmr(uint64_t core_amount)
+get_rmx(uint64_t core_amount)
 {
     return  static_cast<double>(core_amount) / 1e12;
 }
@@ -273,7 +273,7 @@ get_tx_pub_key_from_received_outs(const transaction &tx);
 
 static
 string
-xmr_amount_to_str(const uint64_t& xmr_amount,
+rmx_amount_to_str(const uint64_t& rmx_amount,
                   string _format="{:0.12f}",
                   bool zero_to_question_mark=true)
 {
@@ -281,13 +281,13 @@ xmr_amount_to_str(const uint64_t& xmr_amount,
 
     if (!zero_to_question_mark)
     {
-        amount_str = fmt::format(_format, XMR_AMOUNT(xmr_amount));
+        amount_str = fmt::format(_format, RMX_AMOUNT(rmx_amount));
     }
     else
     {
-        if (xmr_amount > 0 && zero_to_question_mark == true)
+        if (rmx_amount > 0 && zero_to_question_mark == true)
         {
-            amount_str = fmt::format(_format, XMR_AMOUNT(xmr_amount));
+            amount_str = fmt::format(_format, RMX_AMOUNT(rmx_amount));
         }
     }
 
@@ -372,4 +372,4 @@ pause_execution(uint64_t no_seconds, const string& text = "now");
 
 }
 
-#endif //XMREG01_TOOLS_H
+#endif //RMXEG01_TOOLS_H

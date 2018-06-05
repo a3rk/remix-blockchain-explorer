@@ -1,31 +1,38 @@
-<h2 style="margin-bottom: 0px">
-   Transaction pool
-</h2>
-<h4 style="font-size: 12px; margin-top: 0px">(no of txs: {{mempool_size}}, size: {{mempool_size_kB}} kB, updated every {{ mempool_refresh_time }} seconds)</h4>
-<div class="center">
-    
-      <table class="center" style="width:80%">
-            <tr>
-                <td>age [h:m:s]</td>
-                <td>transaction hash</td>
-                <td>fee</td>
-                <td>outputs</td>
-                <td>in/out/pID</td>
-                <td>ring size</td>
-                <td>tx size [kB]</td>
-            </tr>
-            {{#mempooltxs}}
-            <tr>
-                <td>{{age}}</td>
-                <td><a href="/tx/{{hash}}">{{hash}}</a></td>
-                <td>{{fee}}</td>
-                <td>{{xmr_outputs}}</td>
-                <td>{{no_inputs}}/{{no_outputs}}/{{pID}}</td>
-                <td>{{mixin}}</td>
-                <td>{{txsize}}</td>
-            </tr>
-            {{/mempooltxs}}
-        </table>
+<div class="panel panel-explorer">
+    <div class="panel-heading">
+        <h2>
+            Transaction pool
+        </h2>
+        <h4 style="font-size: 12px; margin-top: 1px">(no of txs: {{mempool_size}}, size: {{mempool_size_kB}} kB, updated every {{ mempool_refresh_time }} seconds)</h4>
+    </div>
+
+
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-hover table-striped">
+                <tr>
+                    <td>age [h:m:s]</td>
+                    <td>transaction hash</td>
+                    <td>fee</td>
+                    <td>outputs</td>
+                    <td>in/out/pID</td>
+                    <td>ring size</td>
+                    <td>tx size [kB]</td>
+                </tr>
+                {{#mempooltxs}}
+                <tr>
+                    <td>{{age}}</td>
+                    <td><a href="/tx/{{hash}}">{{hash}}</a></td>
+                    <td>{{fee}}</td>
+                    <td>{{rmx_outputs}}</td>
+                    <td>{{no_inputs}}/{{no_outputs}}/{{pID}}</td>
+                    <td>{{mixin}}</td>
+                    <td>{{txsize}}</td>
+                </tr>
+                {{/mempooltxs}}
+            </table>
+        </div>
+    </div>
 
     {{^mempool_fits_on_front_page}}
       {{#partial_mempool_shown}}
