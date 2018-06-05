@@ -1,3 +1,39 @@
+@import url(//fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
+@import url(//fonts.googleapis.com/css?family=Roboto:400,300,500);
+
+a {
+  color: #03a678;
+}
+a:hover {
+  color: #025b42;
+}
+body {
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #6f6e6e;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Roboto Condensed', Arial, sans-serif;
+}
+h3,
+.h3 {
+  font-size: 32px;
+  margin-bottom: 14px;
+}
 .panel-explorer {
     border-color: #336A80;
 }
