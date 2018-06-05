@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     {{#refresh}}
         <meta http-equiv="refresh" content="10">
     {{/refresh}}
@@ -10,25 +12,72 @@
     <!--<link rel="stylesheet" type="text/css" href="/css/style.css">-->
     <style type="text/css">
         {{#css_styles}}{{/css_styles}}
+        <style type="text/css">
+	.row > div{
+        margin-bottom: 15px;
+    }
+	.header{
+        min-height: 90px;
+    }
+    .footer{
+        min-height: 60px;
+    }
+    .header, .footer{
+        background: #2f2f2f;
+    }
+    .sidebar{
+        min-height: 300px;
+        background: #dbdfe5;
+    }
+    .content-top{
+        min-height: 160px;
+        background: #b4bac0;
+    }
+    .content-bottom{
+        min-height: 125px;
+        background: #7e8aa0;
+        margin-bottom: -15px;
+    }
+    .content-bottom.bg-alt{
+        background: #9ca5b6;
+    }
+/* Styles for proper margin when layout become horizontal */
+@media (max-width: 991px){
+    .content-bottom{
+        margin-bottom: 15px;
+    }
+    .content-bottom.bg-alt{
+        margin-bottom: -15px;
+    }
+}
+</style>
     </style>
 
     {{#js_files}}{{/js_files}}
 
 </head>
 <body>
-<div>
+<div class="container">
 
-    <div class="center">
-        <h1 class="center"><a href="/">Remix Blockchain Explorer</a></h1>
+    <div class="row">
+            <div class="col-md-12">
+                <div class="header">Remix Blockchain Explorer</div>
+            </div>
+    </div>
+    <div class="row">
+            <div class="col-xs-12">
+                <div class="content-top">
+                    <form action="/search" method="get" style="width:100%; margin-top:15px" class="style-1">
+                        <input class="form-control" type="text" name="value" size="120"
+                            placeholder="block height, block hash, transaction hash">
+                        <input type="submit" value="Search">
+                    </form>
+                </div>
+            </div>
     </div>
 
-
     <div class="center">
-        <form action="/search" method="get" style="width:100%; margin-top:15px" class="style-1">
-            <input type="text" name="value" size="120"
-                   placeholder="block height, block hash, transaction hash">
-            <input type="submit" value="Search">
-        </form>
+        
     </div>
 
 </div>
