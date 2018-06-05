@@ -34,7 +34,7 @@
 
 #define TMPL_DIR                    "./templates"
 #define TMPL_PARIALS_DIR            TMPL_DIR "/partials"
-#define TMPL_CSS_STYLES             TMPL_DIR "/css/style.css"
+#define TMPL_CSS_STYLES             TMPL_DIR "/css/bootstrap.min.css"
 #define TMPL_INDEX                  TMPL_DIR "/index.html"
 #define TMPL_INDEX2                 TMPL_DIR "/index2.html"
 #define TMPL_MEMPOOL                TMPL_DIR "/mempool.html"
