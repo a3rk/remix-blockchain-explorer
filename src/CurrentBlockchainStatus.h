@@ -2,8 +2,8 @@
 // Created by mwo on 16/05/17.
 //
 
-#ifndef XMRBLOCKS_CURRENTBLOCKCHAINSTATUS_H
-#define XMRBLOCKS_CURRENTBLOCKCHAINSTATUS_H
+#ifndef RMXBLOCKS_CURRENTBLOCKCHAINSTATUS_H
+#define RMXBLOCKS_CURRENTBLOCKCHAINSTATUS_H
 
 #include "MicroCore.h"
 
@@ -15,7 +15,7 @@
 #include <mutex>
 #include <atomic>
 
-namespace xmreg
+namespace rmxeg
 {
 
 using namespace std;
@@ -111,4 +111,4 @@ struct CurrentBlockchainStatus
 
 }
 
-#endif //XMRBLOCKS_CURRENTBLOCKCHAINSTATUS_H
+#endif //RMXBLOCKS_CURRENTBLOCKCHAINSTATUS_H
