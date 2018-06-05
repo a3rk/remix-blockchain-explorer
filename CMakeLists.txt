@@ -97,7 +97,7 @@ configure_files(${CMAKE_CURRENT_SOURCE_DIR}/src/templates/partials ${CMAKE_CURRE
 configure_files(${CMAKE_CURRENT_SOURCE_DIR}/src/templates/js ${CMAKE_CURRENT_BINARY_DIR}/templates/js)
 
 set(LIBRARIES
-        myxrm
+        myrmx
         myext
         mstch
         wallet
