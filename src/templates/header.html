@@ -1,170 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+<head lang="en">
+
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE"/>
+        <meta name="robots" content="nofollow"/>
     {{#refresh}}
         <meta http-equiv="refresh" content="10">
     {{/refresh}}
-    <title>Remix Blockchain Explorer</title>
-    <!--<link rel="stylesheet" type="text/css" href="/css/style.css">-->
+    <title>REMIX | Explorer</title>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.4.0/jquery.timeago.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="//fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
     <style type="text/css">
         {{#css_styles}}{{/css_styles}}
-@import url(//fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
-@import url(//fonts.googleapis.com/css?family=Roboto:400,300,500,700);
-@import url(//fonts.googleapis.com/css?family=Inconsolata:400,700);
+    </style>
 
-body {  
-  background-color: #f5f5f5;
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  line-height: 1.428571429;
-  color: #262626;
-  margin: 0;
-  padding: 0;
-  margin-bottom: 85px;
-  font-size: 16px;
-  overflow-y: scroll;
-}
-a {
-  color: #014e71;
-}
-a:hover {
-  color: #0274a8;
-}
-hr {
-  border-top-color: #0274a8;
-}
-strong, b {
-  font-weight: 500;
-}
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Roboto Condensed', Arial, sans-serif;
-}
-h3,.h3 {
-  font-size: 32px;
-  margin-bottom: 14px;
-}
-code {
-  color: #0274a8;
-  background-color: #efefef;
-  padding: 2px 10px;
-  border-radius: 0;
-}
-
-.padding-5 { padding: 5px !important; }
-.padding-10 { padding: 10px !important; }
-.padding-15 { padding: 15px !important; }
-.padding-20 { padding: 20px !important; }
-.padding-25 { padding: 25px !important; }
-.padding-30 { padding: 30px !important; }
-
-.padding-t-5 { padding-top: 5px !important; }
-.padding-t-10 { padding-top: 10px !important; }
-.padding-t-15 { padding-top: 15px !important; }
-.padding-t-20 { padding-top: 20px !important; }
-.padding-t-25 { padding-top: 25px !important; }
-.padding-t-30 { padding-top: 30px !important; }
-
-.padding-b-5 { padding-bottom: 5px !important; }
-.padding-b-10 { padding-bottom: 10px !important; }
-.padding-b-15 { padding-bottom: 15px !important; }
-.padding-b-20 { padding-bottom: 20px !important; }
-.padding-b-25 { padding-bottom: 25px !important; }
-.padding-b-30 { padding-bottom: 30px !important; }
-
-.padding-l-5 { padding-left: 5px !important; }
-.padding-l-10 { padding-left: 10px !important; }
-.padding-l-15 { padding-left: 15px !important; }
-.padding-l-20 { padding-left: 20px !important; }
-.padding-l-25 { padding-left: 25px !important; }
-.padding-l-30 { padding-left: 30px !important; }
-
-.padding-r-5 { padding-right: 5px !important; }
-.padding-r-10 { padding-right: 10px !important; }
-.padding-r-15 { padding-right: 15px !important; }
-.padding-r-20 { padding-right: 20px !important; }
-.padding-r-25 { padding-right: 25px !important; }
-.padding-r-30 { padding-right: 30px !important; }
-
-.push-up-5 { margin-top: 5px !important; }
-.push-up-10 { margin-top: 10px !important; }
-.push-up-15 { margin-top: 15px !important; }
-.push-up-20 { margin-top: 20px !important; }
-.push-up-25 { margin-top: 25px !important; }
-.push-up-30 { margin-top: 30px !important; }
-
-.push-down-5 { margin-bottom: 5px !important; }
-.push-down-10 { margin-bottom: 10px !important; }
-.push-down-15 { margin-bottom: 15px !important; }
-.push-down-20 { margin-bottom: 20px !important; }
-.push-down-25 { margin-bottom: 25px !important; }
-.push-down-30 { margin-bottom: 30px !important; }
-
-        
-	.row > div{
-        margin-bottom: 15px;
-    }
-	.header{
-        min-height: 90px;
-    }
-    .footer{
-        min-height: 60px;
-    }
-    .header, .footer{
-        background: #0274a8;
-    }
-    .sidebar{
-        min-height: 300px;
-        background: #dbdfe5;
-    }
-    .content-top{
-        min-height: 160px;
-        background: #b4bac0;
-    }
-    .content-bottom{
-        min-height: 125px;
-        background: #7e8aa0;
-        margin-bottom: -15px;
-    }
-    .content-bottom.bg-alt{
-        background: #9ca5b6;
-    }
-/* Styles for proper margin when layout become horizontal */
-@media (max-width: 991px){
-    .content-bottom{
-        margin-bottom: 15px;
-    }
-    .content-bottom.bg-alt{
-        margin-bottom: -15px;
-    }
-}
-</style>
-<head>
-
-    {{#js_files}}{{/js_files}}
-
+    <script type="text/javascript">
+        $(function(){
+            $('.tx-input').click(function(){
+                $(this).next().next().toggle();
+            });
+        });
+    </script>
 </head>
 <body>
-<div class="container">
-
-    <div class="row">
-            <div class="col-md-12">
-                <div class="header">Remix Blockchain Explorer</div>
-            </div>
-    </div>
-    <div class="row">
-            <div class="col-xs-12">
-                <div class="content-top">
-                    <form action="/search" method="get" style="width:100%; margin-top:15px" class="style-1">
-                        <input class="form-control" type="text" name="value" size="120"
-                            placeholder="block height, block hash, transaction hash">
-                        <input type="submit" value="Search">
-                    </form>
-                </div>
-            </div>
-    </div>
-
+    <div id="explorer" class="container">
+        <h1 class="">Monero Blockchain Explorer</h1>
+            
+            <form action="/explorer/search" method="get" id="explorer-search">
+                <div class="input-group">
+                    <input class="form-control" type="text" name="value" placeholder="blk height, blk hash, tx hash, tx payment id, encrypted payment id, tx public key, input key image, stealth address, and datetime">
+                        <span class="input-group-btn">
+                            <button class="btn btn-explorer" type="submit" id="lookUp">
+                                <span><i class="fa fa-search"></i> Lookup</span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            
+           
