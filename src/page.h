@@ -3316,6 +3316,14 @@ public:
         context.insert({"total_xmr"      , string{}});
         context.insert({"key_imgs"       , mstch::array{}});
 
+<<<<<<< HEAD
+=======
+            // header is public spend and keys
+            const size_t header_lenght = 2 * sizeof(crypto::public_key);
+            const size_t key_img_size  = sizeof(crypto::key_image);
+            const size_t record_lenght = key_img_size + sizeof(crypto::signature);
+            const size_t chacha_length = sizeof(crypto::chacha8_key);
+>>>>>>> new-changes
 
         size_t no_key_images = (decoded_raw_data.size() - header_lenght) / record_lenght;
 
@@ -5185,10 +5193,21 @@ public:
 
         j_info["fee_per_kb"] = fee_estimated;
 
+<<<<<<< HEAD
         j_info["tx_pool_size"]        = MempoolStatus::mempool_no.load();
         j_info["tx_pool_size_kbytes"] = MempoolStatus::mempool_size.load();
 
         j_data = j_info;
+=======
+            j_data = json {
+                    {"last_git_commit_hash", string {GIT_COMMIT_HASH}},
+                    {"last_git_commit_date", string {GIT_COMMIT_DATETIME}},
+                    {"git_branch_name"     , string {GIT_BRANCH_NAME}},
+                    {"monero_version_full" , 'REMIX'},
+                    {"api"                 , ONIONEXPLORER_RPC_VERSION},
+                    {"blockchain_height"   , core_storage->get_current_blockchain_height()}
+            };
+>>>>>>> new-changes
 
         j_response["status"]  = "success";
 
@@ -6309,8 +6328,25 @@ private:
             }
         }
 
+<<<<<<< HEAD
         return !offset_too_large;
     }
+=======
+        string
+        get_footer()
+        {
+            // set last git commit date based on
+            // autogenrated version.h during compilation
+            static const mstch::map footer_context {
+                    {"last_git_commit_hash", string {GIT_COMMIT_HASH}},
+                    {"last_git_commit_date", string {GIT_COMMIT_DATETIME}},
+                    {"git_branch_name"     , string {GIT_BRANCH_NAME}},
+                    {"monero_version_full" , 'REMIX'},
+                    {"api"                 , std::to_string(ONIONEXPLORER_RPC_VERSION_MAJOR)
+                                             + "."
+                                             + std::to_string(ONIONEXPLORER_RPC_VERSION_MINOR)},
+            };
+>>>>>>> new-changes
 
     string
     get_footer()
