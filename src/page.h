@@ -66,7 +66,7 @@
 #define JS_SHA3     TMPL_DIR "/js/sha3.js"
 
 #define ONIONEXPLORER_RPC_VERSION_MAJOR 1
-#define ONIONEXPLORER_RPC_VERSION_MINOR 0
+#define ONIONEXPLORER_RPC_VERSION_MINOR 5
 #define MAKE_ONIONEXPLORER_RPC_VERSION(major,minor) (((major)<<16)|(minor))
 #define ONIONEXPLORER_RPC_VERSION \
     MAKE_ONIONEXPLORER_RPC_VERSION(ONIONEXPLORER_RPC_VERSION_MAJOR, ONIONEXPLORER_RPC_VERSION_MINOR)
@@ -5199,7 +5199,7 @@ namespace rmxeg
                     {"last_git_commit_hash", string {GIT_COMMIT_HASH}},
                     {"last_git_commit_date", string {GIT_COMMIT_DATETIME}},
                     {"git_branch_name"     , string {GIT_BRANCH_NAME}},
-                    {"remix_version_full" , 'REMIX'},
+                    {"remix_version_full" , "REMIX"},
                     {"api"                 , ONIONEXPLORER_RPC_VERSION},
                     {"blockchain_height"   , core_storage->get_current_blockchain_height()}
             };
@@ -6216,7 +6216,7 @@ namespace rmxeg
                     {"last_git_commit_hash", string {GIT_COMMIT_HASH}},
                     {"last_git_commit_date", string {GIT_COMMIT_DATETIME}},
                     {"git_branch_name"     , string {GIT_BRANCH_NAME}},
-                    {"remix_version_full" , 'REMIX'},
+                    {"remix_version_full" , "REMIX"},
                     {"api"                 , std::to_string(ONIONEXPLORER_RPC_VERSION_MAJOR)
                                              + "."
                                              + std::to_string(ONIONEXPLORER_RPC_VERSION_MINOR)},
