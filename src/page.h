@@ -3240,7 +3240,7 @@ namespace xmreg
             const size_t header_lenght = 2 * sizeof(crypto::public_key);
             const size_t key_img_size  = sizeof(crypto::key_image);
             const size_t record_lenght = key_img_size + sizeof(crypto::signature);
-            const size_t chacha_length = sizeof(crypto::chacha_key);
+            const size_t chacha_length = sizeof(crypto::chacha8_key);
 
             if (decoded_raw_data.size() < header_lenght)
             {
@@ -5199,7 +5199,7 @@ namespace xmreg
                     {"last_git_commit_hash", string {GIT_COMMIT_HASH}},
                     {"last_git_commit_date", string {GIT_COMMIT_DATETIME}},
                     {"git_branch_name"     , string {GIT_BRANCH_NAME}},
-                    {"monero_version_full" , string {MONERO_VERSION_FULL}},
+                    {"monero_version_full" , 'REMIX'},
                     {"api"                 , ONIONEXPLORER_RPC_VERSION},
                     {"blockchain_height"   , core_storage->get_current_blockchain_height()}
             };
@@ -6216,7 +6216,7 @@ namespace xmreg
                     {"last_git_commit_hash", string {GIT_COMMIT_HASH}},
                     {"last_git_commit_date", string {GIT_COMMIT_DATETIME}},
                     {"git_branch_name"     , string {GIT_BRANCH_NAME}},
-                    {"monero_version_full" , string {MONERO_VERSION_FULL}},
+                    {"monero_version_full" , 'REMIX'},
                     {"api"                 , std::to_string(ONIONEXPLORER_RPC_VERSION_MAJOR)
                                              + "."
                                              + std::to_string(ONIONEXPLORER_RPC_VERSION_MINOR)},
