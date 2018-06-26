@@ -98,7 +98,7 @@ To run it:
 ./rmxblocks
 ```
 
-By default it will look for blockchain in its default location i.e., `~/.bitremix/lmdb`.
+By default it will look for blockchain in its default location i.e., `~/.remix/lmdb`.
 You can use `--bc-path` option if its in different location. 
 Example output:
 
@@ -152,7 +152,7 @@ rmxblocks, Remix Blockchain Explorer:
   --mempool-refresh-time arg (=5)       time, in seconds, for each refresh of 
                                         mempool state
   -b [ --bc-path ] arg                  path to lmdb folder of the blockchain, 
-                                        e.g., ~/.bitremix/lmdb
+                                        e.g., ~/.remix/lmdb
   --ssl-crt-file arg                    path to crt file for ssl (https) 
                                         functionality
   --ssl-key-file arg                    path to key file for ssl (https) 
@@ -187,10 +187,10 @@ This flag will enable emission monitoring thread. When started, the thread
  will initially scan the entire blockchain, and calculate the cumulative emission based on each block.
 Since it is a separate thread, the explorer will work as usual during this time. 
 Every 10000 blocks, the thread will save current emission in a file, by default, 
- in `~/.bitremix/lmdb/emission_amount.txt`. For testnet network, 
- it is `~/.bitremix/testnet/lmdb/emission_amount.txt`. This file is used so that we don't
+ in `~/.remix/lmdb/emission_amount.txt`. For testnet network, 
+ it is `~/.remix/testnet/lmdb/emission_amount.txt`. This file is used so that we don't
  need to rescan entire blockchain whenever the explorer is restarted. When the 
- explorer restarts, the thread will first check if `~/.bitremix/lmdb/emission_amount.txt`
+ explorer restarts, the thread will first check if `~/.remix/lmdb/emission_amount.txt`
  is present, read its values, and continue from there if possible. Subsequently, only the initial
  use of the tread is time consuming. Once the thread scans the entire blockchain, it updates
  the emission amount using new blocks as they come. Since the explorer writes this file, there can
